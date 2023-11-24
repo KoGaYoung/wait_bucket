@@ -29,5 +29,32 @@ mv .* ../
 rmdir wait_bucket
 ~~~
 
+## eslint 적용 - 다른글에 상세히 적어둠
+~~~
+npm eslint --init
+✔ How would you like to use ESLint? · style
+✔ What type of modules does your project use? · esm
+✔ Which framework does your project use? · react
+✔ Does your project use TypeScript? · [No] / Yes
+✔ Where does your code run? · browser
+✔ How would you like to define a style for your project? · guide
+✔ Which style guide do you want to follow? · airbnb
+✔ What format do you want your config file to be in? · JavaScript
+Checking peerDependencies of eslint-config-airbnb@latest
+The config that you've selected requires the following dependencies:
+
+eslint-config-airbnb@latest eslint@^7.32.0 || ^8.2.0 eslint-plugin-import@^2.25.3 eslint-plugin-jsx-a11y@^6.5.1 eslint-plugin-react@^7.28.0 eslint-plugin-react-hooks@^4.3.0
+✔ Would you like to install them now? · No / Yes
+✔ Which package manager do you want to use? · npm
+
+eslintrc.js 파일 수정
+
+npm install concurrently --save-dev
+
+package.json 파일 script 수정
+"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+"dev:lint": "concurrently \"npm run dev\" \"npm run lint\""
+~~~
+
 ### 기획부터 배포까지 모든걸 혼자 하다보니 draw.io로 작업하게되었다 [링크](https://app.diagrams.net/#G1gHRkVQwIO7IyHXJN_y9W7Tt8stH0KK6O)
 <img width="1361" alt="image" src="https://github.com/KoGaYoung/wait_bucket/assets/36693355/b6ef4c3b-d497-46b2-8a8b-289557330cf1">

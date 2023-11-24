@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# wait_bucket
+---
+### 버킷아 잠시만 기다려줘 서비스
 
-## Getting Started
+# 기술스택
+~~~
+server: oracle clude free tier
+back-end: nodeJS
+front-end: nextJS + typescript
 
-First, run the development server:
+-> 오라클클라우드 가입 오류로 일단 모킹환경구성해서 작업한다..^^ㅠㅠ
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+~~~
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 프로젝트 생성 명령어 모음 (다음 프로젝트에서 까먹을것같아서 일단 적어둔다)
+~~~
+npx create-next-app@latest wait_bucket --typescript
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+✔ Would you like to use ESLint? … No / [Yes]
+✔ Would you like to use Tailwind CSS? … [No] / Yes (필요하면 추가할예정)
+✔ Would you like to use `src/` directory? … No / [Yes] (public폴더 두고 정적인파일 모으고싶음)
+✔ Would you like to use App Router? (recommended) … No / [Yes]
+✔ Would you like to customize the default import alias (@/*)? … No / [Yes]  - 폴더구조를 생각해둔게 있어서 @component 추가
+✔ What import alias would you like configured? … @component/*
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+cd wait_bucket
+mv * ../
+mv .* ../
+rmdir wait_bucket
+~~~
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 기획부터 배포까지 모든걸 혼자 하다보니 draw.io로 작업하게되었다 [링크](https://app.diagrams.net/#G1gHRkVQwIO7IyHXJN_y9W7Tt8stH0KK6O)
+<img width="1361" alt="image" src="https://github.com/KoGaYoung/wait_bucket/assets/36693355/b6ef4c3b-d497-46b2-8a8b-289557330cf1">

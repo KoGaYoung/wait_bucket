@@ -6,6 +6,8 @@
 server: oracle clude free tier
 back-end: nodeJS
 front-end: nextJS + typescript
+
+-> 오라클클라우드 가입 오류로 일단 모킹환경구성해서 작업한다..^^ㅠㅠ
 ~~~
 
 ### 기획부터 배포까지 모든걸 혼자 하다보니 draw.io로 작업하게되었다 [링크](https://app.diagrams.net/#G1gHRkVQwIO7IyHXJN_y9W7Tt8stH0KK6O)

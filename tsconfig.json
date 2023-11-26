@@ -53,6 +53,7 @@
     "paths": {
       "@api/*": ["./src/api/*"],
       "@components/*": ["./src/components/*"],
+      "@mocks/*": ["./src/mocks/*"],
       "@store/*": ["./src/store/*"],
       "@style/*": ["./style/*"]
     }

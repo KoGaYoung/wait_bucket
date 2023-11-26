@@ -6,15 +6,17 @@
  * 외부 리소스 로드: 글로벌한 설정이나 외부 리소스(예: 폰트, 외부 라이브러리)를 로드
  * getServerSideProps로 먼저 받아와야할지 고려해보기
  */
-import React, { useEffect } from 'react';
+
 import '@style/globals.css'; // 전역 스타일
 import { StoreProvider } from '@store/useStore';
 import { AppProps } from 'next/app';
+import { server } from '@mocks/browser';
+
+if (process.env.NODE_ENV === 'development') {
+  server.listen();
+}
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  useEffect(() => {
-    console.log('app');
-  }, []);
 
   return (
     <StoreProvider>

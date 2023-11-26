@@ -19,8 +19,9 @@
       }
     ],
     "paths": {
-      "@api/*": ["./src/*"],
-      "@components/*": ["./src/*"],
+      "@api/*": ["./src/api/*"],
+      "@components/*": ["./src/components/*"],
+      "@store/*": ["./src/store/*"],
       "@style/*": ["./style/*"]
     }
   },

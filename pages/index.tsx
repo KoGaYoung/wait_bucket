@@ -1,7 +1,12 @@
 import React from 'react';
-// 추가로 필요한 컴포넌트나 라이브러리를 여기에 임포트합니다.
 
-export default function Home() {
+/**
+ * 서비스 오픈 여부 API 호출 ('/open/${year}')
+ * Y -> 내 트리 확인하기 버튼 노출
+ * N -> wait 페이지로 리다이렉트
+ * @returns 
+ */
+const Home = () => {
   return (
     <div>
       <h1>Welcome to Our Website!</h1>
@@ -10,3 +15,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home 

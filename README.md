@@ -16,40 +16,14 @@ front-end: nextJS + typescript
 
 ~~~
 
-## 프로젝트 생성 명령어 모음 (다음 프로젝트에서 까먹을것같아서 일단 적어둔다)
+## 프로젝트 생성
 ~~~
 npx create-next-app@latest wait_bucket --typescript
-
-✔ Would you like to use ESLint? … No / [Yes]
-✔ Would you like to use Tailwind CSS? … [No] / Yes (필요하면 추가할예정)
-✔ Would you like to use `src/` directory? … No / [Yes] (public폴더 두고 정적인파일 모으고싶음)
-✔ Would you like to use App Router? (recommended) … No / [Yes]
-✔ Would you like to customize the default import alias (@/*)? … No / [Yes]  - 폴더구조를 생각해둔게 있어서 @component 추가
-✔ What import alias would you like configured? … @component/*
-
-cd wait_bucket
-mv * ../
-mv .* ../
-rmdir wait_bucket
 ~~~
 
-## eslint 적용 - 다른글에 상세히 적어둠
+## eslint 적용 + prettier 적용
 ~~~
 npm eslint --init
-✔ How would you like to use ESLint? · style
-✔ What type of modules does your project use? · esm
-✔ Which framework does your project use? · react
-✔ Does your project use TypeScript? · [No] / Yes
-✔ Where does your code run? · browser
-✔ How would you like to define a style for your project? · guide
-✔ Which style guide do you want to follow? · airbnb
-✔ What format do you want your config file to be in? · JavaScript
-Checking peerDependencies of eslint-config-airbnb@latest
-The config that you've selected requires the following dependencies:
-
-eslint-config-airbnb@latest eslint@^7.32.0 || ^8.2.0 eslint-plugin-import@^2.25.3 eslint-plugin-jsx-a11y@^6.5.1 eslint-plugin-react@^7.28.0 eslint-plugin-react-hooks@^4.3.0
-✔ Would you like to install them now? · No / Yes
-✔ Which package manager do you want to use? · npm
 
 eslintrc.js 파일 수정
 
@@ -64,45 +38,38 @@ npm install --save-dev prettier
 npm install --save-dev eslint-plugin-prettier eslint-config-prettier
 .eslintrc.js 수정
 .prettierrc 파일 생성 + 커스텀 옵션 추가
+
+.vscode 폴더 생성 후 setting.json 추가
 ~~~
 
 ## 프로젝트 구조 
 ~~~
-ASIS
-├── public (정적인 이미지, 아이콘 파일을 여기다 모아요)
-├── src
-│   └── app
-│       ├── pages.tsx
-│       └── layout.tsx
-├── style (스타일 파일을 여기다 모아요)
-│
-├── next-env.d.ts (Next용 ts 선언 파일)
-├── next.config.js (Next.js 구성 파일)
-├── tsconfig.json (TypeScript용 구성 파일)
-└── .eslintrc.json (eslint 설정파일)
 
 
-TOBE
 ├── public
 ├── pages (페이지 컴포넌트 저장, 구조에 맞춰서 자동 라우터 생성)
 │   ├── _app.tsx (메인 컴포넌트, 얘부터 실행 됨 ) 
 │   ├── index.tsx (애플리케이션의 루트, '/' 홈화면에 해당됨 )
+│   ├── login.tsx
 │   ├── wait.tsx
 │   └── wish-tree.tsx 
 ├── src (주요 소스 코드를 저장)
 │   ├── api (API 호출, 관련 소스)
 │   ├── components (공통 컴포넌트 - 버튼, 팝업 등)
 │   ├── hooks (커스텀 훅 - 데이터 가져오기, 상태 관리)
+│   ├── mock (모킹 msw - )
 │   ├── store (전역상태)
 │   └── layout.tsx (페이지 전체 레이아웃)
 ├── style
 │
-├── next-env.d.ts
-├── next.config.js
-├── tsconfig.json
-├── .eslintrc.json
-└── .env.local
+├── next-env.d.ts (타입스크립트에 대한 설정)
+├── next.config.js (서버 사이드 렌더링, 빌드 최적화, 환경 변수 설정, 웹팩(Webpack) 구성)
+├── tsconfig.json (타입스크립트 컴파일러의 설정)
+├── .eslintrc.json (eslint 설정)
+└── .env.local (환경변수)
 
+
+* 편한대로 mobx 작업하고 react query 적용 예정
 ~~~
 
 ### 기획부터 배포까지 모든걸 혼자 하다보니 draw.io로 작업하게되었다 [링크](https://app.diagrams.net/#G1gHRkVQwIO7IyHXJN_y9W7Tt8stH0KK6O)

@@ -12,7 +12,8 @@ module.exports = {
     "airbnb/hooks", // Airbnb 스타일 가이드 내 React Hooks 규칙 적용
     "plugin:@typescript-eslint/recommended", // TypeScript 규칙 적용
     "next", // Next.js 기본 ESLint 설정 적용
-    "next/core-web-vitals" // Next.js의 Core Web Vitals 최적화 규칙 적용
+    "next/core-web-vitals", // Next.js의 Core Web Vitals 최적화 규칙 적용
+    "plugin:prettier/recommended" // Prettier 추천 설정 추가
   ],
 
   // typescript 코드 분석
@@ -39,7 +40,8 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off", // React 17 이상에서는 JSX에서 React를 import할 필요가 없음
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }], // .tsx 확장자에서 JSX 사용 허용
-    "@typescript-eslint/explicit-module-boundary-types": "off" // 모듈 경계 타입을 명시적으로 선언하지 않아도 됨
+    "@typescript-eslint/explicit-module-boundary-types": "off", // 모듈 경계 타입을 명시적으로 선언하지 않아도 됨
+    "prettier/prettier": "error" // Prettier 규칙을 에러로 표시
   },
 
   // ESLint 플러그인

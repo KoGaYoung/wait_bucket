@@ -58,6 +58,12 @@ npm install concurrently --save-dev
 package.json 파일 script 수정
 "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
 "dev:lint": "concurrently \"npm run dev\" \"npm run lint\""
+
+prettier 적용
+npm install --save-dev prettier
+npm install --save-dev eslint-plugin-prettier eslint-config-prettier
+.eslintrc.js 수정
+.prettierrc 파일 생성 + 커스텀 옵션 추가
 ~~~
 
 ## 프로젝트 구조 

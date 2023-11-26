@@ -1,6 +1,7 @@
 import React from 'react';
+import { AppProps } from 'next/app';
 
-const  Wait = ({ Component, pageProps }) => {
+const  Wait = ({ Component, pageProps }: AppProps) => {
   return (
     <div>
       <p>12월 1일에 만나요</p>
@@ -8,6 +9,6 @@ const  Wait = ({ Component, pageProps }) => {
       <p>내 버킷 기록하기</p>
     </div>
   );
-}
+};
 
 export default Wait;

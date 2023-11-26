@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-// import './globals.css'
 
 // Google의 Inter 폰트를 불러오는 코드
 const inter = Inter({ subsets: ['latin'] });
@@ -9,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'wait bucket',
   description: '버킷아 잠시만 기다려줘',
-}
+};
 
 const RootLayout = ({
   children,
@@ -21,6 +20,6 @@ const RootLayout = ({
       <body className={inter.className}>{children}</body>
     </html>
   );
-}
+};
 
 export default RootLayout;

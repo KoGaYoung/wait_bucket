@@ -1,23 +1,55 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+
+    // 컴파일러가 포함할 라이브러리를 지정
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+
+    // .js 파일도 컴파일 허용
     "allowJs": true,
+
+    // 타입 선언 파일(.d.ts)의 타입 체크를 건너 뜀
     "skipLibCheck": true,
+
+    // 엄격 체크
     "strict": true,
+
+    // TypeScript가 JavaScript 파일을 출력하지 않도록 설정
     "noEmit": true,
+
+    // CommonJS 모듈과 ES6 모듈 간의 상호 운용성을 개선
     "esModuleInterop": true,
+
+    // 사용할 모듈 시스템을 지정합니다. "esnext"는 최신 JavaScript의 모듈 시스템을 사용
     "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
+
+    // 모듈 해석 방식을 지정합니다. "node"는 Node.js 스타일의 모듈 해석을 사용
+    "moduleResolution": "node",
+
+    // .json인 모듈의 import를 허용
+    "resolveJsonModule": true, 
+
+    // 각 파일을 별도의 모듈처럼 컴파일합니다. 이는 Babel과 같은 트랜스파일러에 적합
     "isolatedModules": true,
+
+    // JSX 코드의 처리 방식을 지정합니다. "preserve"는 JSX를 그대로 둡니다.
     "jsx": "preserve",
+
+    // 컴파일러가 이전 컴파일 정보를 저장하여 재컴파일 속도를 개선
     "incremental": true,
+
+    // typeScript 플러그인을 설정
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // 모듈 별칭
     "paths": {
       "@api/*": ["./src/api/*"],
       "@components/*": ["./src/components/*"],
@@ -25,6 +57,10 @@
       "@style/*": ["./style/*"]
     }
   },
+
+  // 컴파일에 포함
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  // 컴파일 미포함
   "exclude": ["node_modules"]
 }

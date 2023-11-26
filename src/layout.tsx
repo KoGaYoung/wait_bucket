@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   description: '버킷아 잠시만 기다려줘',
 };
 
-const RootLayout = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>

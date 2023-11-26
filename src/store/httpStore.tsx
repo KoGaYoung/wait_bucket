@@ -1,10 +1,10 @@
 import { makeAutoObservable } from 'mobx';
 
-export type THttpStore = {
-};
+export type THttpStore = {};
 
 /**
  * axios 공통 처리
+ * axiosInstance
  * request, response interceptor 구현
  * 네트워크 상태 메롱인 경우 처리로직 구현
  */

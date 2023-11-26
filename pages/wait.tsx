@@ -1,7 +1,6 @@
 import React from 'react';
-import { AppProps } from 'next/app';
 
-const  Wait = ({ Component, pageProps }: AppProps) => {
+const Wait = () => {
   return (
     <div>
       <p>12월 1일에 만나요</p>

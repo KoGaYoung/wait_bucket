@@ -1,7 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-export type TSessionStore = {
-};
+export type TSessionStore = {};
 
 /**
  * 유저 정보 전역상태로 관리

@@ -16,18 +16,16 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
   const httpStore: THttpStore = useMemo(() => new HttpStore(), []);
   const sessionStore: TSessionStore = useMemo(() => new SessionStore(), []);
 
-  const value = useMemo(() => ({
-    httpStore,
-    sessionStore
-  }), [
-    httpStore,
-    sessionStore
-  ]);
+  const value = useMemo(
+    () => ({
+      httpStore,
+      sessionStore,
+    }),
+    [httpStore, sessionStore]
+  );
 
   return (
-    <globalContext.Provider value={value}>
-      {children}
-    </globalContext.Provider>
+    <globalContext.Provider value={value}>{children}</globalContext.Provider>
   );
 };
 

@@ -50,5 +50,15 @@ module.exports = {
     "@typescript-eslint", // TypeScript 관련 ESLint 플러그인
     "react", // React 관련 ESLint 플러그인
     "react-hooks" // React Hooks 관련 ESLint 플러그인
+  ],
+
+  // eslint 예외처리 제외
+  overrides: [
+    {
+      files: ['_app.tsx'], // 또는 파일의 경로에 맞게 조정
+      rules: {
+        'react/jsx-props-no-spreading': 'off'
+      }
+    }
   ]
 };

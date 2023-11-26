@@ -4,6 +4,7 @@
  * 레이아웃 설정
  * 상태 관리: Redux, Context API 등을 사용하여 애플리케이션의 전역 상태를 관리
  * 외부 리소스 로드: 글로벌한 설정이나 외부 리소스(예: 폰트, 외부 라이브러리)를 로드
+ * getServerSideProps로 먼저 받아와야할지 고려해보기
  */
 import React, { useEffect } from 'react';
 import '@style/globals.css'; // 전역 스타일
@@ -11,8 +12,7 @@ import { StoreProvider } from '@store/useStore';
 import { AppProps } from 'next/app';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-
-  useEffect(() => { 
+  useEffect(() => {
     console.log('app');
   }, []);
 

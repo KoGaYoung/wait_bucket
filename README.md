@@ -13,7 +13,7 @@ back-end: nodeJS
 front-end: nextJS + typescript
 
 -> 오라클클라우드 가입 오류로 일단 모킹환경구성해서 작업한다..^^ㅠㅠ
-
+(aws에 올려야지....)
 ~~~
 
 ## 프로젝트 생성

@@ -56,17 +56,18 @@ msw 1.x버전으로 개발
 ## 프로젝트 구조 
 ~~~
 ├── public
-├── pages (페이지 컴포넌트 저장, 구조에 맞춰서 자동 라우터 생성)
-│   ├── _app.tsx (메인 컴포넌트, 얘부터 실행 됨 ) 
-│   ├── index.tsx (애플리케이션의 루트, '/' 홈화면에 해당됨 )
+│   └── mockServiceWorker.js
+├── pages (View, 폴더 구조에 맞춰서 라우터 자동생성)
+│   ├── _app.tsx (메인 컴포넌트, 여기부터 실행 됨) 
+│   ├── index.tsx ('/', 홈 화면에 해당)
 │   ├── login.tsx
 │   ├── wait.tsx
 │   └── wish-tree.tsx 
-├── src (주요 소스 코드를 저장)
-│   ├── api (API 호출, 관련 소스)
+├── src (주요 소스 코드)
+│   ├── api (API 호출 관련 소스)
 │   ├── components (공통 컴포넌트 - 버튼, 팝업 등)
 │   ├── hooks (커스텀 훅 - 데이터 가져오기, 상태 관리)
-│   ├── mock (모킹 msw - )
+│   ├── mock (모킹 msw)
 │   ├── store (전역상태)
 │   └── layout.tsx (페이지 전체 레이아웃)
 ├── style
@@ -75,7 +76,8 @@ msw 1.x버전으로 개발
 ├── next.config.js (서버 사이드 렌더링, 빌드 최적화, 환경 변수 설정, 웹팩(Webpack) 구성)
 ├── tsconfig.json (타입스크립트 컴파일러의 설정)
 ├── .eslintrc.json (eslint 설정)
-└── .env.local (환경변수)
+├── .env (환경변수)
+└── .env.local (로컬 환경변수)
 
 
 * 편한대로 mobx 작업하고 react query 적용 예정

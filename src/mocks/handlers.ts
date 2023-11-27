@@ -20,7 +20,12 @@ export const handlers = [
 
     return res(
       ctx.status(200),
-      ctx.json({ isOpen: 'Y' })
+      ctx.json({ 
+        status:200,
+        code: 'error.coode.00000',
+        message: '',
+        data: { isOpen: 'Y' }
+      })
     );
   }),
   // 다른 API 핸들러들을 여기에 추가할 수 있습니다.

@@ -1,30 +1,30 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useStore } from '@store/useStore';
+
 /**
  * 서비스 오픈 여부 API 호출 ('/open/${year}')
  * Y -> 내 트리 확인하기 버튼 노출
  * N -> wait 페이지로 리다이렉트
  */
 const Home = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const router = useRouter();
+  const { httpStore } = useStore();
 
-   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // API 호출
-        const response = await axios.get('/open/2023');
-        setData(response.data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    useEffect(()=> {
+      httpStore
+        .get<{ isOpen: 'Y' | 'N' }>('/open/2023', {})
+        .then((res) => {
+          console.log(res);
+          if(res.isOpen === 'Y') {
+             router.push('/wait');
+          }
+          else {
+            // 내 트리 확인하기 버튼 노출
+          }
+        });
+    },[]);
 
-    fetchData();
-  }, []);
 
   return (
     <div>

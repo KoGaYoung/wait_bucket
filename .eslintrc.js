@@ -92,7 +92,7 @@ module.exports = {
     "react-hooks"
   ],
 
-  // eslint 예외처리 제외
+  // eslint 예외처리 제외 -> 스프레드 연산자 허용
   overrides: [
     {
       files: ['_app.tsx'],

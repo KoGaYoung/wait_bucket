@@ -42,10 +42,19 @@ npm install --save-dev eslint-plugin-prettier eslint-config-prettier
 .vscode 폴더 생성 후 setting.json 추가
 ~~~
 
-## 프로젝트 구조 
+## 쾌적한 개발을 위해 모킹환경 구성
+~~~
+사용해오던 Mock.JS -> MSW를 사용한 이유
+1. 실제 HTTP를 가로채서 더 실제와 같은 모킹환경 제공
+2. node환경에서도 제공됨(프론트 백 동일하게 사용가능)
+3. restful api, graphQL 지원함 (graphQL로 마이그레이션 해볼 의향이 있기에 이 이유가 가장 큼)
+
+msw 2.x버전의 경우 next 14버전과 호환이 안된다. (공식 업데이트가 얼마 되지 않아 레퍼런스가 별로없다)
+msw 1.x버전으로 개발
 ~~~
 
-
+## 프로젝트 구조 
+~~~
 ├── public
 ├── pages (페이지 컴포넌트 저장, 구조에 맞춰서 자동 라우터 생성)
 │   ├── _app.tsx (메인 컴포넌트, 얘부터 실행 됨 ) 

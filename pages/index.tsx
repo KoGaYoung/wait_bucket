@@ -2,6 +2,10 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useStore } from '@store/useStore';
 
+interface IOpen {
+  isOpen: 'Y' | 'N'
+}
+
 /**
  * 서비스 오픈 여부 API 호출 ('/open/${year}')
  * Y -> 내 트리 확인하기 버튼 노출
@@ -11,20 +15,24 @@ const Home = () => {
   const router = useRouter();
   const { httpStore } = useStore();
 
-    useEffect(()=> {
-      httpStore
-        .get<{ isOpen: 'Y' | 'N' }>('/open/2023', {})
-        .then((res) => {
-          console.log(res);
-          if(res.isOpen === 'Y') {
-             router.push('/wait');
-          }
-          else {
-            // 내 트리 확인하기 버튼 노출
-          }
-        });
-    },[]);
+  useEffect(()=> {
 
+    httpStore
+      .get<IOpen>('/open/2023')
+      .then((res) => {
+        if (res.status !== 200) {
+          return;
+        }
+
+        // 서비스 오픈 전
+        if (res.data.isOpen !== 'N') {
+          router.push('/wait');
+        }
+        else {
+          // 내 소원 트리 확인하기 버튼 노출
+        }
+      });
+  },[]);
 
   return (
     <div>

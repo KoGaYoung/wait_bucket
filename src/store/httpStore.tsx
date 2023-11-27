@@ -1,11 +1,18 @@
 import { makeAutoObservable } from 'mobx';
 import Axios, { AxiosInstance, AxiosResponse } from 'axios';
 
+export interface IResponse<T> {
+  status: number;
+  code: string;
+  message: string;
+  data: T;
+}
+
 export type THttpStore = {
-  get<T = unknown>(url: string, params: object): Promise<T>;
-  post<T = unknown>(url: string, data: object): Promise<T>;
-  put<T = unknown>(url: string, data: object): Promise<T>;
-  delete<T = unknown>(url: string, data: object): Promise<T>;
+  get<T>(url: string, params?: object): Promise<IResponse<T>>;
+  post<T>(url: string, data?: object): Promise<IResponse<T>>;
+  put<T>(url: string, data?: object): Promise<IResponse<T>>;
+  delete<T>(url: string, data?: object): Promise<IResponse<T>>;
 };
 
 /**
@@ -53,21 +60,33 @@ class HttpStore implements THttpStore {
     );
   }
 
-  get = <T = unknown>(url: string, params: object): Promise<T> => {
-    return this.axiosInstance.get<T>(url, { params }).then(res => res.data);
-  };
+  async get<T = unknown>(url: string, params?: object): Promise<IResponse<T>> {
+    const response: AxiosResponse<IResponse<T>> = await this.axiosInstance.get<
+      IResponse<T>
+    >(url, { params });
+    return response.data;
+  }
 
-  post = <T = unknown>(url: string, data: object): Promise<T> => {
-    return this.axiosInstance.post<T>(url, data).then(res => res.data);
-  };
+  async post<T = unknown>(url: string, data: object): Promise<IResponse<T>> {
+    const response: AxiosResponse<IResponse<T>> = await this.axiosInstance.post<
+      IResponse<T>
+    >(url, data);
+    return response.data;
+  }
 
-  put = <T = unknown>(url: string, data: object): Promise<T> => {
-    return this.axiosInstance.put<T>(url, data).then(res => res.data);
-  };
-  
-  delete = <T = unknown>(url: string, data: object): Promise<T> => {
-    return this.axiosInstance.delete<T>(url, { data }).then(res => res.data);
-  };
+  async put<T = unknown>(url: string, data: object): Promise<IResponse<T>> {
+    const response: AxiosResponse<IResponse<T>> = await this.axiosInstance.put<
+      IResponse<T>
+    >(url, data);
+    return response.data;
+  }
+
+  async delete<T = unknown>(url: string, data: object): Promise<IResponse<T>> {
+    const response: AxiosResponse<IResponse<T>> = await this.axiosInstance.delete<
+      IResponse<T>
+    >(url, { data });
+    return response.data;
+  }
 }
 
 export default HttpStore;

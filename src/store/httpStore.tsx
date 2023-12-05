@@ -52,8 +52,16 @@ class HttpStore implements THttpStore {
         return res;
       },
 
-      // 응답에 대한 로직
+      // 응답에 대한 에러 로직
       (err) => {
+        // 세분화된 응답 에러 처리
+        if (err.response) {
+          // 서버 응답 에러 처리
+        } else if (err.request) {
+          // 요청이 이루어졌으나 응답을 받지 못함
+        } else {
+          // 요청 설정 중 에러 발생
+        }
         return Promise.reject(err);
       }
     );
@@ -81,9 +89,9 @@ class HttpStore implements THttpStore {
   }
 
   async delete<T = unknown>(url: string, data: object): Promise<IResponse<T>> {
-    const response: AxiosResponse<IResponse<T>> = await this.axiosInstance.delete<
-      IResponse<T>
-    >(url, { data });
+    const response: AxiosResponse<IResponse<T>> =
+      await this.axiosInstance.delete<IResponse<T>>(url, { data });
+
     return response.data;
   }
 }

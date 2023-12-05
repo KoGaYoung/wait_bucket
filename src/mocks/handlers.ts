@@ -7,38 +7,43 @@ interface MockAxiosResponse<T> {
   status: number;
   statusText: string;
   headers: Record<string, string>;
-  config: {}; // Axios request config
-  request?: any; // Request that generated this response
+  config: Record<string, unknown>; // Axios request config
+  request?: unknown; // Request that generated this response
 }
 
 /**
  * IResponse<T> -> MockAxiosResponse<IResponse<T>
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
-const convertMcokResponse = <T>(data: IResponse<T>) : MockAxiosResponse<IResponse<T>> => {
-   const mockAxiosResponse: MockAxiosResponse<IResponse<T>> = {
-      data,
-      status: 200,
-      statusText: 'OK',
-      headers: { 'Content-Type': 'application/json' },
-      config: {},
-    };
+const convertMockResponse = <T>(data: IResponse<T>): MockAxiosResponse<IResponse<T>> => {
+  const mockAxiosResponse = {
+    data,
+    status: 200,
+    statusText: 'OK',
+    headers: { 'Content-Type': 'application/json' },
+    config: {},
+  };
 
-    return mockAxiosResponse;
-}
+  return mockAxiosResponse;
+};
 
 export const handlers = [
   rest.get('http://localhost:3000/open/:year', (req, res, ctx) => {
-    const year = req.params.year;
+    const { year } = req.params;
     const isOpen = year === '2023';
 
-    return res(ctx.status(200), ctx.json(convertMcokResponse({
-        status: 200,
-        code: 'success.code.00000',
-        message: 'Success',
-        data: { isOpen: isOpen ? 'Y' : 'N' },
-      })));
+    return res(
+      ctx.status(200),
+      ctx.json(
+        convertMockResponse({
+          status: 200,
+          code: 'success.code.00000',
+          message: 'Success',
+          data: { isOpen: isOpen ? 'Y' : 'N' },
+        })
+      )
+    );
   }),
   // 다른 API 핸들러들을 여기에 추가
 ];

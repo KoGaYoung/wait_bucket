@@ -10,13 +10,12 @@ import '@style/globals.css'; // 전역 스타일
 import { StoreProvider } from '@store/useStore';
 import { AppProps } from 'next/app';
 
-if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
-  const { worker } = require("@mocks/browser");
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  const { worker } = require('@mocks/browser');
   worker.start();
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-
   return (
     <StoreProvider>
       <Component {...pageProps} />

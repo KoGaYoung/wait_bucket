@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useStore } from '@store/useStore';
 
 interface IOpen {
-  isOpen: 'Y' | 'N'
+  isOpen: 'Y' | 'N';
 }
 
 /**
@@ -15,24 +15,20 @@ const Home = () => {
   const router = useRouter();
   const { httpStore } = useStore();
 
-  useEffect(()=> {
+  useEffect(() => {
+    httpStore.get<IOpen>('/open/2023').then((res) => {
+      if (res.status !== 200) {
+        return;
+      }
 
-    httpStore
-      .get<IOpen>('/open/2023')
-      .then((res) => {
-        if (res.status !== 200) {
-          return;
-        }
-
-        // 서비스 오픈 전
-        if (res.data.isOpen !== 'N') {
-          router.push('/wait');
-        }
-        else {
-          // 내 소원 트리 확인하기 버튼 노출
-        }
-      });
-  },[]);
+      // 서비스 오픈 전
+      if (res.data.isOpen !== 'N') {
+        router.push('/wait');
+      } else {
+        // 내 소원 트리 확인하기 버튼 노출
+      }
+    });
+  }, [httpStore, router]);
 
   return (
     <div>

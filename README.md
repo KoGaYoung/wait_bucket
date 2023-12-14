@@ -8,38 +8,9 @@ npm install && npm run dev:lint
 
 # 기술스택
 ~~~
-server: oracle clude free tier
-back-end: nodeJS
-front-end: nextJS + typescript
-
--> 오라클클라우드 가입 오류로 일단 모킹환경구성해서 작업한다..^^ㅠㅠ
-(aws에 올려야지....)
-~~~
-
-## 프로젝트 생성
-~~~
-npx create-next-app@latest wait_bucket --typescript
-~~~
-
-## eslint 적용 + prettier 적용
-~~~
-npm eslint --init
-
-eslintrc.js 파일 수정
-
-npm install concurrently --save-dev
-
-package.json 파일 script 수정
-"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-"dev:lint": "concurrently \"npm run dev\" \"npm run lint\""
-
-prettier 적용
-npm install --save-dev prettier
-npm install --save-dev eslint-plugin-prettier eslint-config-prettier
-.eslintrc.js 수정
-.prettierrc 파일 생성 + 커스텀 옵션 추가
-
-.vscode 폴더 생성 후 setting.json 추가
+server: aws
+back-end: nodeJS(expresS)
+front-end: nextJS + typescript + mobx(to react-query + zustand) 
 ~~~
 
 ## 쾌적한 개발을 위해 모킹환경 구성

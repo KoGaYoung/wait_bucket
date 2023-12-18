@@ -13,23 +13,13 @@ module.exports = {
 
   // eslint 규칙 확장
   extends: [
-    // Airbnb의 JavaScript 스타일 가이드 적용
     "airbnb",
-
-    // Airbnb 스타일 가이드 내 React Hooks 규칙 적용
-    "airbnb/hooks", 
-
-    // TypeScript 규칙 적용
-    "plugin:@typescript-eslint/recommended", 
-
-    // Next.js 기본 ESLint 설정 적용
-    "next", 
-
-    // Next.js의 Core Web Vitals 최적화 규칙 적용
-    "next/core-web-vitals", 
-
-    // Prettier 추천 설정 추가
-    "plugin:prettier/recommended" 
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "next",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
   ],
 
   // typescript 코드 분석

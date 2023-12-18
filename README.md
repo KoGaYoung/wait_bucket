@@ -8,9 +8,43 @@ npm install && npm run dev:lint
 
 # 기술스택
 ~~~
-server: aws
-back-end: nodeJS(expresS)
-front-end: nextJS + typescript + mobx(to react-query + zustand) 
+server: aws (오라클 클라우드 회원가입 처참히 실패, aws에 올려야지....)
+back-end: nodeJS
+front-end: nextJS + typescript
+
+적용하고싶은 내용
+next는 tailwind
+reactquery + graphql
+router 라우터 정보 읽고 페이지 이동 개발자 편의도구 만들기
+swagger 파일 읽어서 api 호출 리스트 만들어주는 기능만들기
+storybook -> ui components에 적용
+jest -> 테스트 함수 작성
+~~~
+
+## 프로젝트 생성
+~~~
+npx create-next-app@latest wait_bucket --typescript
+~~~
+
+## eslint 적용 + prettier 적용
+~~~
+npm eslint --init
+
+eslintrc.js 파일 수정
+
+npm install concurrently --save-dev
+
+package.json 파일 script 수정
+"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+"dev:lint": "concurrently \"npm run dev\" \"npm run lint\""
+
+prettier 적용
+npm install --save-dev prettier
+npm install --save-dev eslint-plugin-prettier eslint-config-prettier
+.eslintrc.js 수정
+.prettierrc 파일 생성 + 커스텀 옵션 추가
+
+.vscode 폴더 생성 후 setting.json 추가
 ~~~
 
 ## 쾌적한 개발을 위해 모킹환경 구성
@@ -62,4 +96,3 @@ sessionStore: 유저 정보 관련
 
 ### 기획부터 배포까지 모든걸 혼자 하다보니 draw.io로 작업하게되었다 [링크](https://app.diagrams.net/#G1gHRkVQwIO7IyHXJN_y9W7Tt8stH0KK6O)
 ![Uploading image.png…]()
-

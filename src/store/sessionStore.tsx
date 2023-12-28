@@ -28,6 +28,7 @@ class SessionStore implements TSessionStore {
   }
 
   initializeSession() {
+    this.isLoggedIn = false;
     // 쿠키나 로컬 스토리지에서 JWT 토큰을 읽어와 상태를 초기화하는 로직
     // 토큰 유효성 검사 및 사용자 정보 로드 로직
   }

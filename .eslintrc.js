@@ -69,6 +69,18 @@ module.exports = {
     // devDependancy에만 있는 설정도 사용 가능
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
 
+    // default props 강제하지 않음(반패턴)
+    "react/require-default-props": "off",
+
+    // props로 받은 것 바로 props로 넘기기 허용
+    'react/jsx-props-no-spreading': ['warn'], 
+
+    // export const 문을 쓸때 에러를 내는 rule 해제
+    'import/prefer-default-export': ['off'],
+
+    // require 사용 허용 
+    '@typescript-eslint/no-var-requires': 0,
+    
     // 확장자명 생략 가능
     "import/extensions": [
       "error",

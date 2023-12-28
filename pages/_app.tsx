@@ -11,6 +11,7 @@ import { StoreProvider } from '@store/useStore';
 import { AppProps } from 'next/app';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line global-require
   const { worker } = require('@mocks/browser');
   worker.start();
 }

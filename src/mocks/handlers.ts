@@ -16,7 +16,9 @@ interface MockAxiosResponse<T> {
  * @param data
  * @returns
  */
-const convertMockResponse = <T>(data: IResponse<T>): MockAxiosResponse<IResponse<T>> => {
+const convertMockResponse = <T>(
+  data: IResponse<T>
+): MockAxiosResponse<IResponse<T>> => {
   const mockAxiosResponse = {
     data,
     status: 200,

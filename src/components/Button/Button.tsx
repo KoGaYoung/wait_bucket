@@ -6,9 +6,9 @@ export interface ButtonProps {
   style?: React.CSSProperties;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, style }) => {
+const Button: React.FC<ButtonProps> = ({ label, onClick, style = {} }) => {
   return (
-    <button onClick={onClick} style={style}>
+    <button type="button" onClick={onClick} style={style}>
       {label}
     </button>
   );

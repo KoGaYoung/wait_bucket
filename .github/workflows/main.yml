@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Register SSH Host Key
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p ${{ secrets.BUILD_SSH_PORT }} -H ${{ secrets.BUILD_SSH_IP }} 2>&1 | tee -a ~/.ssh/known_hosts
+
+      - name: Build on Build Server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          BUILD_SERVER_IP: ${{ secrets.BUILD_SSH_IP }}
+          BUILD_SERVER_USER: ${{ secrets.BUILD_SSH_USER }}
+        run: |
+          # SSH 키 설정
+          mkdir -p ~/.ssh
+          echo "$AWS_SECRET_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          # 현재 Git 커밋 해시 가져오기
+          GIT_HASH=$(git rev-parse —short HEAD)
+          REPO_NAME=${GITHUB_REPOSITORY##*/}
+          # 빌드 서버에 SSH 접근하여 빌드 명령 실행
+          ssh -p ${{ secrets.BUILD_SSH_PORT }} $BUILD_SSH_USER@$BUILD_SSH_IP "./start_frontend.sh"

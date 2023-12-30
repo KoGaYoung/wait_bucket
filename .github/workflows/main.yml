@@ -31,7 +31,7 @@ jobs:
 
       - name: Build on Build Server
         env:
-          AWS_SECRET_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.SSH_PEM }}
           BUILD_SSH_IP: ${{ secrets.BUILD_SSH_IP }}
           BUILD_SSH_USER: ${{ secrets.BUILD_SSH_USER }}
         run: |

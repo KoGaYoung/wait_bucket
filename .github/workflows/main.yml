@@ -31,9 +31,9 @@ jobs:
 
       - name: Build on Build Server
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.AWS_SECRET_KEY }}
-          BUILD_SERVER_IP: ${{ secrets.BUILD_SSH_IP }}
-          BUILD_SERVER_USER: ${{ secrets.BUILD_SSH_USER }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          BUILD_SSH_IP: ${{ secrets.BUILD_SSH_IP }}
+          BUILD_SSH_USER: ${{ secrets.BUILD_SSH_USER }}
         run: |
           # SSH 키 설정
           mkdir -p ~/.ssh

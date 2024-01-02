@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Welcome to Our Website!!!!!!!!</h1>
+      <h1>Welcome my bucet</h1>
       <p>This is the homepage of our Next.js application.</p>
       {/* 여기에 추가적인 컴포넌트나 내용을 렌더링할 수 있습니다. */}
     </div>

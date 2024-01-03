@@ -18,12 +18,6 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
       - name: Register SSH Host Key
         run: |
           mkdir -p ~/.ssh

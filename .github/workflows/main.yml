@@ -40,4 +40,4 @@ jobs:
           echo "$AWS_SECRET_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           # 빌드 서버에 SSH 접근하여 빌드 명령 실행
-          ssh -i ~/.ssh/id_rsa $BUILD_SSH_USER@$BUILD_SSH_IP "./start_frontend.sh"
+          ssh -v -i ~/.ssh/id_rsa $BUILD_SSH_USER@$BUILD_SSH_IP "./start_frontend.sh"

@@ -18,12 +18,6 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
       - name: Register SSH Host Key
         run: |
           mkdir -p ~/.ssh
@@ -31,13 +25,13 @@ jobs:
 
       - name: Build on Build Server
         env:
-          AWS_SECRET_KEY: ${{ secrets.SSH_PEM }}
+          DEPLOY_SSH_KEY: ${{ secrets.SSH_PEM }}
           BUILD_SSH_IP: ${{ secrets.BUILD_SSH_IP }}
           BUILD_SSH_USER: ${{ secrets.BUILD_SSH_USER }}
         run: |
           # SSH 키 설정
           mkdir -p ~/.ssh
-          echo "$AWS_SECRET_KEY" > ~/.ssh/id_rsa
+          echo "$DEPLOY_SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           # 빌드 서버에 SSH 접근하여 빌드 명령 실행
-          ssh -i ~/.ssh/id_rsa $BUILD_SSH_USER@$BUILD_SSH_IP "./start_frontend.sh"
+          ssh -v -i ~/.ssh/id_rsa $BUILD_SSH_USER@$BUILD_SSH_IP "./start_frontend.sh"
